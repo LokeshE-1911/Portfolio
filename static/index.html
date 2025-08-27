@@ -7,64 +7,242 @@
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <header class="wrap">
-    <h1>Lokesh — MIS Graduate & Full-Stack Developer</h1>
-    <p>FastAPI • Java • React • Cloud • LLM RAG</p>
+  <!-- ====== NAV / HERO ====== -->
+  <header class="hero">
+    <nav class="nav wrap">
+      <div class="brand">Lokesh</div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#timeline">Projects & Experience</a></li>
+        <li><a href="#awards">Awards</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero__inner wrap">
+      <h1 class="hero__title">MIS Graduate & Full-Stack Developer</h1>
+      <p class="hero__tag">FastAPI • Java/Spring • React • Cloud • LLM + RAG</p>
+      <div class="hero__cta">
+        <a href="#timeline" class="btn">See My Work</a>
+        <button id="openChat" class="btn btn--ghost">Ask the Chatbot</button>
+      </div>
+    </div>
+    <div class="hero__blur hero__blur--1"></div>
+    <div class="hero__blur hero__blur--2"></div>
   </header>
 
-  <main class="wrap card">
-    <h2>About me</h2>
-    <p>Ask the chatbot anything about my skills, projects, or experience.</p>
+  <main>
+    <!-- ====== ABOUT ====== -->
+    <section id="about" class="section">
+      <div class="wrap grid-2">
+        <div class="card reveal">
+          <h2>About me</h2>
+          <p>
+            I build pragmatic, production-ready apps: FastAPI backends, React frontends,
+            cloud deploys (Render/Firebase), and conversational AI with RAG.
+            Ask the chatbot about my projects or experience—it's grounded on my resume.
+          </p>
+        </div>
+        <div class="card reveal">
+          <img class="profile" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=800&auto=format&fit=crop" alt="Profile" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SKILLS ====== -->
+    <section id="skills" class="section">
+      <div class="wrap">
+        <h2 class="section__title">Skills</h2>
+        <div class="skills reveal">
+          <div class="skill">
+            <div class="skill__head">
+              <span>Python / FastAPI</span><span class="skill__pct">90%</span>
+            </div>
+            <div class="skill__bar"><div style="--pct:90%"></div></div>
+          </div>
+          <div class="skill">
+            <div class="skill__head">
+              <span>Java / Spring Boot</span><span class="skill__pct">80%</span>
+            </div>
+            <div class="skill__bar"><div style="--pct:80%"></div></div>
+          </div>
+          <div class="skill">
+            <div class="skill__head">
+              <span>React / Vite</span><span class="skill__pct">85%</span>
+            </div>
+            <div class="skill__bar"><div style="--pct:85%"></div></div>
+          </div>
+          <div class="skill">
+            <div class="skill__head">
+              <span>LLM + RAG (OpenAI)</span><span class="skill__pct">88%</span>
+            </div>
+            <div class="skill__bar"><div style="--pct:88%"></div></div>
+          </div>
+          <div class="tags">
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Docker</span>
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">Render</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TIMELINE (Projects + Experience) ====== -->
+    <section id="timeline" class="section">
+      <div class="wrap">
+        <h2 class="section__title">Projects & Experience</h2>
+
+        <div class="timeline">
+          <!-- ITEM -->
+          <div class="tl__item reveal">
+            <div class="tl__dot"></div>
+            <div class="tl__card">
+              <div class="tl__time">2025</div>
+              <h3>AI Legislation Chatbot — RAG over Bills</h3>
+              <p>
+                FastAPI backend with embeddings + retrieval, chat-first UI. Onboarding questions,
+                topic modeling, vector search, and cloud deploy.
+              </p>
+              <div class="badge">FastAPI</div><div class="badge">OpenAI</div><div class="badge">Vector Search</div>
+            </div>
+          </div>
+
+          <!-- ITEM -->
+          <div class="tl__item reveal">
+            <div class="tl__dot"></div>
+            <div class="tl__card">
+              <div class="tl__time">2025</div>
+              <h3>Bugsy — Kids Coding Platform</h3>
+              <p>
+                React + Vite + Firebase app with curriculum pages, trial booking, and playful animations.
+              </p>
+              <div class="badge">React</div><div class="badge">Firebase</div><div class="badge">EmailJS</div>
+            </div>
+          </div>
+
+          <!-- ITEM -->
+          <div class="tl__item reveal">
+            <div class="tl__dot"></div>
+            <div class="tl__card">
+              <div class="tl__time">2024–2025</div>
+              <h3>Graduate Assistant — EKU, Engg & Tech</h3>
+              <p>
+                Managed labs (Ubuntu/Windows/macOS), configured Cisco switches/routers,
+                and guided students with assignments and projects.
+              </p>
+              <div class="badge">Networking</div><div class="badge">Mentoring</div><div class="badge">Automation</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== AWARDS ====== -->
+    <section id="awards" class="section">
+      <div class="wrap">
+        <h2 class="section__title">Awards</h2>
+        <div class="awards reveal">
+          <div class="award">
+            <div class="award__icon">🏆</div>
+            <div>
+              <div class="award__title">Dept. Recognition — Lab Excellence</div>
+              <div class="award__meta">EKU • 2025</div>
+            </div>
+          </div>
+          <div class="award">
+            <div class="award__icon">🥇</div>
+            <div>
+              <div class="award__title">Hackathon Finalist — AI Tools</div>
+              <div class="award__meta">2024</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- Chat Widget -->
-  <div class="chat">
-    <div class="chat__header">Chat with Lokesh</div>
-    <div id="chat-log" class="chat__log"></div>
-    <div class="chat__input">
-      <input id="chat-input" placeholder="Ask about skills, projects, experience..." />
-      <button id="chat-send">Send</button>
+  <!-- ====== FLOATING CHAT BUTTON ====== -->
+  <button id="chatFab" class="fab">💬</button>
+
+  <!-- ====== MODAL CHAT ====== -->
+  <div id="chatModal" class="modal">
+    <div class="modal__dialog">
+      <div class="modal__head">
+        <div class="modal__title">Chat with Lokesh</div>
+        <button id="closeChat" class="modal__close">✕</button>
+      </div>
+      <div id="chatLog" class="modal__log"></div>
+      <div class="modal__input">
+        <input id="chatInput" placeholder="Ask about skills, projects, experience..." />
+        <button id="chatSend">Send</button>
+      </div>
     </div>
   </div>
 
+  <!-- ====== SCRIPTS ====== -->
   <script>
-    const log = document.getElementById('chat-log');
-    const input = document.getElementById('chat-input');
-    const btn = document.getElementById('chat-send');
+    // Smooth reveal on scroll
+    const io = new IntersectionObserver((entries)=>
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('reveal--in') }),
+      { threshold: 0.18 }
+    );
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-    function bubble(role, text) {
+    // Chat modal logic
+    const modal = document.getElementById('chatModal');
+    const fab = document.getElementById('chatFab');
+    const openBtn = document.getElementById('openChat');
+    const closeBtn = document.getElementById('closeChat');
+    const log = document.getElementById('chatLog');
+    const input = document.getElementById('chatInput');
+    const sendBtn = document.getElementById('chatSend');
+
+    function showModal(){ modal.classList.add('modal--open'); input.focus(); if (log.childElementCount===0) seed(); }
+    function hideModal(){ modal.classList.remove('modal--open'); }
+    function bubble(role, text){
       const div = document.createElement('div');
-      div.className = 'bubble ' + (role === 'user' ? 'bubble--user' : 'bubble--bot');
+      div.className = 'msg ' + (role==='user'?'msg--user':'msg--bot');
       div.textContent = text;
       log.appendChild(div);
       log.scrollTop = log.scrollHeight;
     }
-
-    bubble('assistant', "Hey! I’m Lokesh’s portfolio bot. Ask me anything about skills, projects, or experience.");
+    function seed(){
+      bubble('assistant', "Hey! I’m Lokesh’s portfolio bot. Ask me about skills, projects, or experience.");
+    }
 
     async function send() {
       const msg = input.value.trim();
       if (!msg) return;
       bubble('user', msg);
       input.value = '';
-      bubble('assistant', '…');
+      const wait = document.createElement('div');
+      wait.className = 'msg msg--bot';
+      wait.textContent = '…';
+      log.appendChild(wait);
+      log.scrollTop = log.scrollHeight;
 
       try {
         const res = await fetch('/api/chat', {
           method: 'POST',
-          headers: {'Content-Type': 'application/json'},
+          headers: {'Content-Type':'application/json'},
           body: JSON.stringify({ message: msg })
         });
         const data = await res.json();
-        // Replace last '...' bubble
-        log.lastChild.textContent = data.reply || 'Sorry, error.';
+        wait.textContent = data.reply || 'Sorry, error.';
       } catch (e) {
-        log.lastChild.textContent = 'Sorry, I hit an error. Try again.';
+        wait.textContent = 'Sorry, I hit an error. Check API key on server.';
       }
     }
 
-    btn.addEventListener('click', send);
-    input.addEventListener('keydown', e => { if (e.key === 'Enter') send(); });
+    [fab, openBtn].forEach(btn => btn?.addEventListener('click', showModal));
+    closeBtn.addEventListener('click', hideModal);
+    sendBtn.addEventListener('click', send);
+    input.addEventListener('keydown', e=>{ if(e.key==='Enter') send(); });
+
+    // Helpful hint if backend key is missing
+    fetch('/healthz').catch(()=>{ /* noop */ });
   </script>
 </body>
 </html>
