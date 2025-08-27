@@ -1,0 +1,15 @@
+:root { --bg:#0b1020; --card:#121735; --text:#e5e7eb; --muted:#94a3b8; --accent:#6366f1; }
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,Segoe UI,Roboto,Arial}
+.wrap{max-width:980px;margin:32px auto;padding:0 16px}
+.card{background:var(--card);border:1px solid #1f2937;border-radius:16px;padding:24px}
+h1{font-size:32px;margin:8px 0} h2{margin-top:0}
+
+.chat{position:fixed;right:20px;bottom:20px;width:360px;height:520px;background:var(--card);border:1px solid #1f2937;border-radius:16px;display:flex;flex-direction:column;overflow:hidden}
+.chat__header{padding:12px 16px;border-bottom:1px solid #1f2937;font-weight:600}
+.chat__log{flex:1;padding:12px;overflow:auto;display:flex;flex-direction:column;gap:8px}
+.chat__input{display:flex;gap:8px;padding:12px;border-top:1px solid #1f2937}
+.chat__input input{flex:1;background:#0f172a;border:1px solid #1f2937;border-radius:10px;color:var(--text);padding:10px}
+.chat__input button{background:var(--accent);color:white;border:none;border-radius:10px;padding:10px 16px;cursor:pointer}
+.bubble{max-width:80%;padding:10px 12px;border-radius:14px;line-height:1.4}
+.bubble--user{align-self:flex-end;background:#334155}
+.bubble--bot{align-self:flex-start;background:#111827}

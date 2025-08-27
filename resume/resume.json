@@ -1,0 +1,30 @@
+{
+  "basics": {
+    "name": "Lokesh <Last Name>",
+    "summary": "MS MIS (4.0 GPA). FastAPI, Java/Spring, React, LLM RAG, and cloud deploys (Render/Firebase)."
+  },
+  "skills": [
+    { "name": "Languages", "keywords": ["Python", "Java", "SQL", "JavaScript"] },
+    { "name": "Frameworks", "keywords": ["FastAPI", "Spring Boot", "React"] },
+    { "name": "Cloud/Tools", "keywords": ["Render", "GitHub", "Docker"] },
+    { "name": "AI/ML", "keywords": ["RAG", "OpenAI API", "Embeddings"] }
+  ],
+  "projects": [
+    {
+      "name": "AI Legislation Chatbot",
+      "description": "RAG chatbot on bills using embeddings + FastAPI.",
+      "highlights": ["Onboarding", "Topic modeling", "Vector search"]
+    }
+  ],
+  "work": [
+    {
+      "name": "EKU Dept. of Engineering & Technology",
+      "position": "Graduate Assistant",
+      "summary": "Supported labs, networking equipment, guided students.",
+      "highlights": ["Maintained labs", "Helped with projects"]
+    }
+  ],
+  "education": [
+    { "institution": "Eastern Kentucky University", "studyType": "MS", "area": "MIS" }
+  ]
+}

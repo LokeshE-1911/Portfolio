@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Lokesh | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="wrap">
+    <h1>Lokesh — MIS Graduate & Full-Stack Developer</h1>
+    <p>FastAPI • Java • React • Cloud • LLM RAG</p>
+  </header>
+
+  <main class="wrap card">
+    <h2>About me</h2>
+    <p>Ask the chatbot anything about my skills, projects, or experience.</p>
+  </main>
+
+  <!-- Chat Widget -->
+  <div class="chat">
+    <div class="chat__header">Chat with Lokesh</div>
+    <div id="chat-log" class="chat__log"></div>
+    <div class="chat__input">
+      <input id="chat-input" placeholder="Ask about skills, projects, experience..." />
+      <button id="chat-send">Send</button>
+    </div>
+  </div>
+
+  <script>
+    const log = document.getElementById('chat-log');
+    const input = document.getElementById('chat-input');
+    const btn = document.getElementById('chat-send');
+
+    function bubble(role, text) {
+      const div = document.createElement('div');
+      div.className = 'bubble ' + (role === 'user' ? 'bubble--user' : 'bubble--bot');
+      div.textContent = text;
+      log.appendChild(div);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    bubble('assistant', "Hey! I’m Lokesh’s portfolio bot. Ask me anything about skills, projects, or experience.");
+
+    async function send() {
+      const msg = input.value.trim();
+      if (!msg) return;
+      bubble('user', msg);
+      input.value = '';
+      bubble('assistant', '…');
+
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ message: msg })
+        });
+        const data = await res.json();
+        // Replace last '...' bubble
+        log.lastChild.textContent = data.reply || 'Sorry, error.';
+      } catch (e) {
+        log.lastChild.textContent = 'Sorry, I hit an error. Try again.';
+      }
+    }
+
+    btn.addEventListener('click', send);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') send(); });
+  </script>
+</body>
+</html>
