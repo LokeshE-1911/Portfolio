@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Lokesh | Portfolio</title>
+  <title>Lokesh Eedara | AI Developer Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="/static/style.css" />
+  <!-- make sure your FastAPI mounts /static at /static -->
+  <link rel="stylesheet" href="/static/styles.css" />
 </head>
 <body>
   <!-- ====== NAV / HERO ====== -->
   <header class="hero">
     <nav class="nav wrap">
-      <div class="brand">Lokesh</div>
+      <div class="brand">Lokesh Eedara</div>
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -20,11 +21,11 @@
     </nav>
 
     <div class="hero__inner wrap">
-      <h1 class="hero__title">MIS Graduate & Full-Stack Developer</h1>
+      <h1 class="hero__title">MIS Graduate • AI & Full-Stack Developer</h1>
       <p class="hero__tag">FastAPI • Java/Spring • React • Cloud • LLM + RAG</p>
       <div class="hero__cta">
         <a href="#timeline" class="btn">See My Work</a>
-        <button id="openChat" class="btn btn--ghost">Ask the Chatbot</button>
+        <a href="#chat-anchor" class="btn btn--ghost">Ask the Chatbot</a>
       </div>
     </div>
     <div class="hero__blur hero__blur--1"></div>
@@ -38,9 +39,9 @@
         <div class="card reveal">
           <h2>About me</h2>
           <p>
-            I build pragmatic, production-ready apps: FastAPI backends, React frontends,
-            cloud deploys (Render/Firebase), and conversational AI with RAG.
-            Ask the chatbot about my projects or experience—it's grounded on my resume.
+            I’m a Master’s student (4.0 GPA) in Computer Science at EKU (AI & Data Science).
+            I build AI-driven backends, conversational roleplay bots, and scalable cloud apps using
+            FastAPI, Spring Boot, React, Docker, and cloud platforms like AWS, Azure, and Render.
           </p>
         </div>
         <div class="card reveal">
@@ -54,85 +55,104 @@
       <div class="wrap">
         <h2 class="section__title">Skills</h2>
         <div class="skills reveal">
-          <div class="skill">
-            <div class="skill__head">
-              <span>Python / FastAPI</span><span class="skill__pct">90%</span>
-            </div>
-            <div class="skill__bar"><div style="--pct:90%"></div></div>
-          </div>
-          <div class="skill">
-            <div class="skill__head">
-              <span>Java / Spring Boot</span><span class="skill__pct">80%</span>
-            </div>
-            <div class="skill__bar"><div style="--pct:80%"></div></div>
-          </div>
-          <div class="skill">
-            <div class="skill__head">
-              <span>React / Vite</span><span class="skill__pct">85%</span>
-            </div>
-            <div class="skill__bar"><div style="--pct:85%"></div></div>
-          </div>
-          <div class="skill">
-            <div class="skill__head">
-              <span>LLM + RAG (OpenAI)</span><span class="skill__pct">88%</span>
-            </div>
-            <div class="skill__bar"><div style="--pct:88%"></div></div>
-          </div>
           <div class="tags">
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">Docker</span>
-            <span class="tag">GitHub Actions</span>
-            <span class="tag">Firebase</span>
-            <span class="tag">Render</span>
+            <span class="tag">Python</span><span class="tag">Java/J2EE</span>
+            <span class="tag">FastAPI</span><span class="tag">Spring Boot</span>
+            <span class="tag">Hibernate</span><span class="tag">React.js</span>
+            <span class="tag">REST APIs</span><span class="tag">LLM APIs</span>
+            <span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span>
+            <span class="tag">Docker</span><span class="tag">Kubernetes</span>
+            <span class="tag">AWS (EC2/RDS)</span><span class="tag">Azure</span><span class="tag">Render</span>
+            <span class="tag">Google Cloud</span><span class="tag">GitHub</span>
+            <span class="tag">Agile</span><span class="tag">DSA</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ====== TIMELINE (Projects + Experience) ====== -->
+    <!-- ====== TIMELINE ====== -->
     <section id="timeline" class="section">
       <div class="wrap">
         <h2 class="section__title">Projects & Experience</h2>
 
         <div class="timeline">
-          <!-- ITEM -->
+          <!-- Big E Sales Coach App -->
           <div class="tl__item reveal">
             <div class="tl__dot"></div>
             <div class="tl__card">
               <div class="tl__time">2025</div>
-              <h3>AI Legislation Chatbot — RAG over Bills</h3>
-              <p>
-                FastAPI backend with embeddings + retrieval, chat-first UI. Onboarding questions,
-                topic modeling, vector search, and cloud deploy.
-              </p>
-              <div class="badge">FastAPI</div><div class="badge">OpenAI</div><div class="badge">Vector Search</div>
+              <h3>Big E Sales Coach App — Real-time AI Sales Roleplay</h3>
+              <div class="tl__banner" style="background-image:url('https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1600&auto=format&fit=crop');"></div>
+              <p>FastAPI backend with Gemini for dynamic sales conversations; voice pipeline (STT/TTS); Render deployment with CI/CD. Winner of $5,000 at EKU Scholars Tank.</p>
+              <div class="badge">FastAPI</div><div class="badge">Gemini</div><div class="badge">STT/TTS</div><div class="badge">Render</div>
             </div>
           </div>
 
-          <!-- ITEM -->
+          <!-- AI Student Advising -->
           <div class="tl__item reveal">
             <div class="tl__dot"></div>
             <div class="tl__card">
               <div class="tl__time">2025</div>
-              <h3>Bugsy — Kids Coding Platform</h3>
-              <p>
-                React + Vite + Firebase app with curriculum pages, trial booking, and playful animations.
-              </p>
-              <div class="badge">React</div><div class="badge">Firebase</div><div class="badge">EmailJS</div>
+              <h3>AI Student Advising Chatbot</h3>
+              <div class="tl__banner" style="background-image:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop');"></div>
+              <p>Ollama LLM + FastAPI for personalized academic guidance. Dockerized for portability; lightweight, scalable prototype.</p>
+              <div class="badge">Ollama</div><div class="badge">FastAPI</div><div class="badge">Docker</div>
             </div>
           </div>
 
-          <!-- ITEM -->
+          <!-- Underwater IQA -->
           <div class="tl__item reveal">
             <div class="tl__dot"></div>
             <div class="tl__card">
-              <div class="tl__time">2024–2025</div>
-              <h3>Graduate Assistant — EKU, Engg & Tech</h3>
-              <p>
-                Managed labs (Ubuntu/Windows/macOS), configured Cisco switches/routers,
-                and guided students with assignments and projects.
-              </p>
-              <div class="badge">Networking</div><div class="badge">Mentoring</div><div class="badge">Automation</div>
+              <div class="tl__time">2024</div>
+              <h3>Underwater Image Quality Assessment (UEIQM)</h3>
+              <div class="tl__banner" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop');"></div>
+              <p>SVR-based, no-reference quality prediction with a 240-image dataset and engineered features; UEIQM metric outperforms baselines.</p>
+              <div class="badge">Python</div><div class="badge">SVR</div><div class="badge">ML</div>
+            </div>
+          </div>
+
+          <!-- Research Assistant -->
+          <div class="tl__item reveal">
+            <div class="tl__dot"></div>
+            <div class="tl__card">
+              <div class="tl__time">Jan 2025 – Present</div>
+              <h3>Research Assistant — Eastern Kentucky University</h3>
+              <p>AI-driven backends (FastAPI + Docker) with Gemini & Ollama; voice pipelines; Render deploys; contributed to $5,000 EKU Scholars Tank win.</p>
+              <div class="badge">FastAPI</div><div class="badge">Docker</div><div class="badge">Gemini</div><div class="badge">Ollama</div>
+            </div>
+          </div>
+
+          <!-- Graduate Assistant -->
+          <div class="tl__item reveal">
+            <div class="tl__dot"></div>
+            <div class="tl__card">
+              <div class="tl__time">Jan 2025 – Present</div>
+              <h3>Graduate Assistant — Eastern Kentucky University</h3>
+              <p>Assisted iOS teaching; maintained labs across Ubuntu/Linux Mint/Windows/macOS; configured Cisco switches/routers; automated lab setup; supported 50+ students.</p>
+              <div class="badge">Automation</div><div class="badge">Cisco</div><div class="badge">Lab Ops</div>
+            </div>
+          </div>
+
+          <!-- Slash Mark -->
+          <div class="tl__item reveal">
+            <div class="tl__dot"></div>
+            <div class="tl__card">
+              <div class="tl__time">Feb – May 2024</div>
+              <h3>Java Backend Intern — Slash Mark</h3>
+              <p>Spring Boot + MySQL Hospital Management System, RBAC security, and Docker/AWS deploy.</p>
+              <div class="badge">Spring Boot</div><div class="badge">MySQL</div><div class="badge">AWS</div>
+            </div>
+          </div>
+
+          <!-- BlackBucks -->
+          <div class="tl__item reveal">
+            <div class="tl__dot"></div>
+            <div class="tl__card">
+              <div class="tl__time">May – Aug 2024</div>
+              <h3>Full-Stack Developer Intern — BlackBucks</h3>
+              <p>React + Spring Boot course & quiz management, JWT auth, deployed on AWS EC2 + RDS with Docker.</p>
+              <div class="badge">React</div><div class="badge">Spring Boot</div><div class="badge">JWT</div><div class="badge">AWS</div>
             </div>
           </div>
         </div>
@@ -147,83 +167,88 @@
           <div class="award">
             <div class="award__icon">🏆</div>
             <div>
-              <div class="award__title">Dept. Recognition — Lab Excellence</div>
-              <div class="award__meta">EKU • 2025</div>
-            </div>
-          </div>
-          <div class="award">
-            <div class="award__icon">🥇</div>
-            <div>
-              <div class="award__title">Hackathon Finalist — AI Tools</div>
-              <div class="award__meta">2024</div>
+              <div class="award__title">Winner — EKU Scholars Tank 2025</div>
+              <div class="award__meta">$5,000 prize • Big E Sales Coach App</div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- anchor to help "Ask the Chatbot" jump near the card -->
+    <div id="chat-anchor"></div>
   </main>
 
-  <!-- ====== FLOATING CHAT BUTTON ====== -->
-  <button id="chatFab" class="fab">💬</button>
+  <!-- ====== CHAT CARD (fixed panel) ====== -->
+  <div id="chatCard" class="chatcard">
+    <div class="chatcard__status">
+      <span class="dot"></span> LOKESH.AI ONLINE
+    </div>
 
-  <!-- ====== MODAL CHAT ====== -->
-  <div id="chatModal" class="modal">
-    <div class="modal__dialog">
-      <div class="modal__head">
-        <div class="modal__title">Chat with Lokesh</div>
-        <button id="closeChat" class="modal__close">✕</button>
+    <div class="chatcard__head">
+      <div>
+        <div class="chatcard__title">Chat with Lokesh’s AI</div>
+        <div class="chatcard__sub">Ask anything about my work or what I’m building</div>
       </div>
-      <div id="chatLog" class="modal__log"></div>
-      <div class="modal__input">
-        <input id="chatInput" placeholder="Ask about skills, projects, experience..." />
-        <button id="chatSend">Send</button>
+      <button id="minBtn" class="minbtn" aria-label="Minimize">—</button>
+    </div>
+
+    <div id="ccLog" class="chatcard__log">
+      <div class="bubble bubble--bot">
+        Hi! I'm Lokesh’s AI assistant. Ask me about my skills, projects, or experience.
       </div>
+    </div>
+
+    <div class="chatcard__input">
+      <input id="ccInput" placeholder="Ask me anything..." />
+      <button id="ccSend" class="sendbtn" aria-label="Send">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+          <path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/>
+        </svg>
+      </button>
     </div>
   </div>
 
+  <!-- small launcher when minimized -->
+  <button id="launcher" class="launcher" aria-label="Open chat">💬</button>
+
   <!-- ====== SCRIPTS ====== -->
   <script>
-    // Smooth reveal on scroll
+    // Scroll reveal
     const io = new IntersectionObserver((entries)=>
       entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('reveal--in') }),
       { threshold: 0.18 }
     );
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-    // Chat modal logic
-    const modal = document.getElementById('chatModal');
-    const fab = document.getElementById('chatFab');
-    const openBtn = document.getElementById('openChat');
-    const closeBtn = document.getElementById('closeChat');
-    const log = document.getElementById('chatLog');
-    const input = document.getElementById('chatInput');
-    const sendBtn = document.getElementById('chatSend');
+    // Chat logic (POST /api/chat)
+    const card   = document.getElementById('chatCard');
+    const log    = document.getElementById('ccLog');
+    const input  = document.getElementById('ccInput');
+    const send   = document.getElementById('ccSend');
+    const minBtn = document.getElementById('minBtn');
+    const launch = document.getElementById('launcher');
 
-    function showModal(){ modal.classList.add('modal--open'); input.focus(); if (log.childElementCount===0) seed(); }
-    function hideModal(){ modal.classList.remove('modal--open'); }
     function bubble(role, text){
       const div = document.createElement('div');
-      div.className = 'msg ' + (role==='user'?'msg--user':'msg--bot');
+      div.className = 'bubble ' + (role==='user' ? 'bubble--user' : 'bubble--bot');
       div.textContent = text;
       log.appendChild(div);
       log.scrollTop = log.scrollHeight;
     }
-    function seed(){
-      bubble('assistant', "Hey! I’m Lokesh’s portfolio bot. Ask me about skills, projects, or experience.");
-    }
 
-    async function send() {
-      const msg = input.value.trim();
-      if (!msg) return;
+    async function sendMsg(){
+      const msg = (input.value || '').trim();
+      if(!msg) return;
       bubble('user', msg);
       input.value = '';
       const wait = document.createElement('div');
-      wait.className = 'msg msg--bot';
+      wait.className = 'bubble bubble--bot';
       wait.textContent = '…';
       log.appendChild(wait);
       log.scrollTop = log.scrollHeight;
 
-      try {
+      try{
         const res = await fetch('/api/chat', {
           method: 'POST',
           headers: {'Content-Type':'application/json'},
@@ -231,18 +256,24 @@
         });
         const data = await res.json();
         wait.textContent = data.reply || 'Sorry, error.';
-      } catch (e) {
-        wait.textContent = 'Sorry, I hit an error. Check API key on server.';
+      }catch(e){
+        wait.textContent = 'Sorry, I hit an error. Check API key.';
       }
     }
 
-    [fab, openBtn].forEach(btn => btn?.addEventListener('click', showModal));
-    closeBtn.addEventListener('click', hideModal);
-    sendBtn.addEventListener('click', send);
-    input.addEventListener('keydown', e=>{ if(e.key==='Enter') send(); });
+    send.addEventListener('click', sendMsg);
+    input.addEventListener('keydown', e => { if(e.key === 'Enter') sendMsg(); });
 
-    // Helpful hint if backend key is missing
-    fetch('/healthz').catch(()=>{ /* noop */ });
+    // Minimize / restore
+    minBtn.addEventListener('click', () => {
+      card.classList.add('chatcard--min');
+      launch.classList.add('launcher--show');
+    });
+    launch.addEventListener('click', () => {
+      card.classList.remove('chatcard--min');
+      launch.classList.remove('launcher--show');
+      input.focus();
+    });
   </script>
 </body>
 </html>

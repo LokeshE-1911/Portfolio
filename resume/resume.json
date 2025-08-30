@@ -1,30 +1,109 @@
 {
   "basics": {
-    "name": "Lokesh <Last Name>",
-    "summary": "MS MIS (4.0 GPA). FastAPI, Java/Spring, React, LLM RAG, and cloud deploys (Render/Firebase)."
+    "name": "Lokesh Eedara",
+    "label": "MIS Graduate • AI & Full-Stack Developer",
+    "summary": "Master’s student (4.0 GPA) focused on AI/ML, FastAPI, Java/Spring, cloud deploys, and conversational AI with RAG/voice. Built voice-enabled roleplay bots, advising assistants, and production APIs (Render, Docker)."
   },
-  "skills": [
-    { "name": "Languages", "keywords": ["Python", "Java", "SQL", "JavaScript"] },
-    { "name": "Frameworks", "keywords": ["FastAPI", "Spring Boot", "React"] },
-    { "name": "Cloud/Tools", "keywords": ["Render", "GitHub", "Docker"] },
-    { "name": "AI/ML", "keywords": ["RAG", "OpenAI API", "Embeddings"] }
-  ],
-  "projects": [
+  "education": [
     {
-      "name": "AI Legislation Chatbot",
-      "description": "RAG chatbot on bills using embeddings + FastAPI.",
-      "highlights": ["Onboarding", "Topic modeling", "Vector search"]
+      "institution": "Eastern Kentucky University, Richmond KY",
+      "studyType": "MS",
+      "area": "Computer Science (AI & Data Science concentration)",
+      "startDate": "2024-08",
+      "endDate": "2025-12",
+      "gpa": "4.0",
+      "courses": ["AI & ML", "Big Data", "Software Engineering & Agile", "Data Visualization"]
     }
   ],
   "work": [
     {
-      "name": "EKU Dept. of Engineering & Technology",
+      "name": "Eastern Kentucky University",
+      "position": "Research Assistant",
+      "startDate": "2025-01",
+      "summary": "Built & deployed AI-driven backends (FastAPI + Docker) using Gemini and Ollama for sales roleplay and student advising; implemented STT/TTS; cloud-hosted prototypes (Render); contributed to $5,000 EKU Scholars Tank win.",
+      "highlights": [
+        "FastAPI backends with Gemini & Ollama LLMs",
+        "Speech-to-Text / Text-to-Speech pipelines",
+        "Render + Docker deploys for real users",
+        "$5,000 prize at EKU Scholars Tank 2025"
+      ]
+    },
+    {
+      "name": "Eastern Kentucky University",
       "position": "Graduate Assistant",
-      "summary": "Supported labs, networking equipment, guided students.",
-      "highlights": ["Maintained labs", "Helped with projects"]
+      "startDate": "2025-01",
+      "summary": "Supported iOS app teaching; maintained Ubuntu/Linux Mint/Windows/macOS labs; configured Cisco switches/routers; automated lab setup; supported 50+ students.",
+      "highlights": [
+        "Automated lab environment scripts",
+        "Networking gear setup (Cisco)",
+        "Guided students in labs & projects"
+      ]
+    },
+    {
+      "name": "Slash Mark",
+      "position": "Java Backend Intern",
+      "startDate": "2024-02",
+      "endDate": "2024-05",
+      "summary": "Built a modular Hospital Management System with Spring Boot, MySQL, REST APIs; role-based auth; Docker + GitHub Actions + AWS EC2.",
+      "highlights": [
+        "Spring Boot + MySQL + REST",
+        "RBAC + secure data handling",
+        "Docker & AWS EC2 CI/CD"
+      ]
+      },
+    {
+      "name": "BlackBucks",
+      "position": "Full-Stack Developer Intern",
+      "startDate": "2024-05",
+      "endDate": "2024-08",
+      "summary": "React frontend and Spring Boot backend for course/quiz management; JWT auth; deployed on AWS (EC2 + RDS) with Docker.",
+      "highlights": [
+        "React + Spring Boot",
+        "JWT auth & secure APIs",
+        "AWS EC2 + RDS with Docker"
+      ]
     }
   ],
-  "education": [
-    { "institution": "Eastern Kentucky University", "studyType": "MS", "area": "MIS" }
+  "projects": [
+    {
+      "name": "Big E Sales Coach App",
+      "description": "Real-time AI sales roleplay assistant.",
+      "highlights": [
+        "FastAPI backend + Gemini API",
+        "Voice (STT/TTS) for realistic convos",
+        "Render deployment with CI/CD"
+      ]
+    },
+    {
+      "name": "AI Student Advising Chatbot",
+      "description": "Ollama LLM + FastAPI for personalized advising.",
+      "highlights": [
+        "Dockerized microservice",
+        "Lightweight, scalable prototype"
+      ]
+    },
+    {
+      "name": "Underwater Image Quality Assessment",
+      "description": "No-reference quality prediction using SVR.",
+      "highlights": [
+        "240-image dataset & feature extraction",
+        "UEIQM metric outperforming baselines"
+      ]
+    }
+  ],
+  "skills": [
+    { "name": "Languages", "keywords": ["Python", "Java/J2EE", "C", "R", "JavaScript", "HTML", "CSS"] },
+    { "name": "Frameworks", "keywords": ["FastAPI", "Spring Boot", "Hibernate", "React.js"] },
+    { "name": "Databases/APIs", "keywords": ["MySQL", "PostgreSQL", "MongoDB", "REST APIs", "LLM APIs"] },
+    { "name": "Cloud/Tools", "keywords": ["Docker", "Kubernetes", "AWS (EC2/RDS)", "Azure", "Render", "Google Cloud", "Git/GitHub", "Jupyter", "VS Code"] },
+    { "name": "Methodologies", "keywords": ["Agile/Scrum", "DSA", "Application Deployment"] }
+  ],
+  "awards": [
+    {
+      "title": "Winner — EKU Scholars Tank 2025",
+      "date": "2025",
+      "awarder": "Eastern Kentucky University",
+      "summary": "$5,000 prize for the Big E Sales Coach App (AI-driven sales roleplay platform)."
+    }
   ]
 }
