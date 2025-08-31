@@ -1,80 +1,55 @@
-import os, json, time
-from typing import List, Tuple, Optional
-import numpy as np, httpx
-from .config import OPENAI_API_KEY, OPENAI_EMBED_MODEL
+import json, re
+from typing import List, Tuple
+from rank_bm25 import BM25Okapi
 
-HEADERS = {"Authorization": f"Bearer {OPENAI_API_KEY}"}
-BATCH = 64
+TOKEN_RE = re.compile(r"\b\w+\b", re.UNICODE)
+def _tok(x: str) -> List[str]: return TOKEN_RE.findall(x.lower())
 
-def _post(url, payload, max_retries=6):
-    backoff = 1.0
-    for _ in range(max_retries):
-        try:
-            with httpx.Client(timeout=60) as c:
-                r = c.post(url, headers=HEADERS, json=payload)
-                if r.status_code == 429:
-                    time.sleep(float(r.headers.get("retry-after", backoff)))
-                    backoff = min(backoff * 2, 16)
-                    continue
-                r.raise_for_status()
-                return r
-        except httpx.RequestError:
-            time.sleep(backoff); backoff = min(backoff * 2, 16)
-    raise RuntimeError("OpenAI request failed after retries")
-
-def _embed(texts: List[str]) -> np.ndarray:
-    url = "https://api.openai.com/v1/embeddings"
-    vecs = []
-    for i in range(0, len(texts), BATCH):
-        payload = {"model": OPENAI_EMBED_MODEL, "input": texts[i:i+BATCH]}
-        data = _post(url, payload).json()["data"]
-        vecs.extend([d["embedding"] for d in data])
-    return np.array(vecs, dtype=np.float32)
-
-def _cos(a, b):
-    a = a / (np.linalg.norm(a, axis=1, keepdims=True) + 1e-10)
-    b = b / (np.linalg.norm(b, axis=1, keepdims=True) + 1e-10)
-    return a @ b.T
-
-def _flatten(resume: dict) -> List[Tuple[str, str]]:
-    docs = []
+def _flatten_resume(resume: dict) -> List[Tuple[str,str]]:
+    docs: List[Tuple[str,str]] = []
     b = resume.get("basics", {})
-    if b: docs.append(("Summary", b.get("summary","")))
+    if b.get("summary"): docs.append(("Summary", b["summary"]))
+
     for s in resume.get("skills", []):
-        docs.append((f"Skill: {s.get('name','')}", ", ".join(s.get("keywords",[]))))
+        name = s.get("name","Skill")
+        kws = ", ".join(s.get("keywords", []))
+        docs.append((f"Skill: {name}", kws))
+
     for p in resume.get("projects", []):
-        docs.append((f"Project: {p.get('name','')}", f"{p.get('description','')} {' '.join(p.get('highlights',[]))}"))
+        title = p.get("name","Project")
+        desc  = p.get("description","")
+        hi    = " ".join(p.get("highlights", []))
+        docs.append((f"Project: {title}", f"{desc} {hi}".strip()))
+
     for w in resume.get("work", []):
-        docs.append((f"Experience: {w.get('name','')} – {w.get('position','')}",
-                     f"{w.get('summary','')} {' '.join(w.get('highlights',[]))}"))
+        company = w.get("name","Company")
+        role    = w.get("position","Role")
+        body    = " ".join(filter(None, [w.get("summary",""), " ".join(w.get("highlights", []))]))
+        docs.append((f"Experience: {company} – {role}", body))
+
     for e in resume.get("education", []):
-        docs.append((f"Education: {e.get('institution','')}", f"{e.get('studyType','')} in {e.get('area','')}"))
-    return docs
+        inst = e.get("institution","Institution")
+        detail = " ".join(filter(None,[e.get("studyType",""), e.get("area","")]))
+        docs.append((f"Education: {inst}", detail))
+
+    for a in resume.get("awards", []):
+        title = a.get("title","Award")
+        docs.append((f"Award: {title}", a.get("summary","")))
+
+    return [(t,c) for t,c in docs if (t.strip() or c.strip())]
 
 class RAGIndex:
-    def __init__(self, resume_path: str, cache_path: str):
-        self.resume_path = resume_path
-        self.cache_path = cache_path
-        self.texts: Optional[List[str]] = None
-        self.embeddings: Optional[np.ndarray] = None
+    """Lightweight BM25 retriever over flattened resume sections."""
+    def __init__(self, resume_path: str):
+        with open(resume_path, "r", encoding="utf-8") as f:
+            resume = json.load(f)
+        self.texts: List[str] = [f"{t}\n{c}".strip() for (t,c) in _flatten_resume(resume)]
+        self.tokens: List[List[str]] = [_tok(txt) for txt in self.texts]
+        self.bm25 = BM25Okapi(self.tokens)
 
-    def load_or_build(self):
-        if os.path.exists(self.cache_path):
-            data = np.load(self.cache_path, allow_pickle=True)
-            self.texts = list(data["texts"])
-            self.embeddings = data["embeddings"].astype(np.float32)
-            return
-        with open(self.resume_path, "r", encoding="utf-8") as f:
-            docs = _flatten(json.load(f))
-        self.texts = [f"{t}\n{c}".strip() for t,c in docs]
-        self.embeddings = _embed(self.texts)
-        tmp = self.cache_path + ".tmp"
-        np.savez_compressed(tmp, texts=np.array(self.texts, dtype=object), embeddings=self.embeddings)
-        os.replace(tmp, self.cache_path)
-
-    def search(self, q: str, k: int = 5) -> List[str]:
-        if self.texts is None: self.load_or_build()
-        qv = _embed([q])
-        sims = _cos(qv, self.embeddings)[0]
-        idx = np.argsort(-sims)[:k]
-        return [self.texts[i] for i in idx]
+    def search(self, query: str, top_k: int = 5) -> List[str]:
+        if not query.strip():
+            return self.texts[:top_k]
+        scores = self.bm25.get_scores(_tok(query))
+        idxs = sorted(range(len(scores)), key=lambda i: -scores[i])[:top_k]
+        return [self.texts[i] for i in idxs]

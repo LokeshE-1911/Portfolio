@@ -1,11 +1,10 @@
 from fastapi import FastAPI
-from fastapi.responses import FileResponse
-from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse, FileResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 from .router_chat import router as chat_router
-import os
 
-app = FastAPI(title="Portfolio + Chat")
+app = FastAPI(title="Lokesh Portfolio (Groq + RAG)")
 
 app.add_middleware(
     CORSMiddleware,
@@ -15,20 +14,27 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 1) Register API routes FIRST so StaticFiles won't shadow them
+# API routes at /chat and /api/chat
 app.include_router(chat_router, prefix="/api")
+app.include_router(chat_router)
 
-# 2) Serve static at /static (not "/")
-STATIC_DIR = os.path.join(os.path.dirname(__file__), "..", "static")
-app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+# Serve static
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
-# 3) Serve index.html at root
-INDEX_PATH = os.path.join(STATIC_DIR, "index.html")
+LANDING_HTML = """<!doctype html><meta charset="utf-8">
+<title>Lokesh — Portfolio</title>
+<meta http-equiv="refresh" content="0; url=/static/index.html">
+<p>Redirecting to the portfolio... <a href="/static/index.html">Open</a></p>"""
 
-@app.get("/")
-def home():
-    return FileResponse(INDEX_PATH)
+@app.get("/", include_in_schema=False)
+def root():
+    return HTMLResponse(LANDING_HTML)
 
 @app.get("/healthz")
 def health():
     return {"ok": True}
+
+# Helpful info for browser GET /chat
+@app.get("/chat", include_in_schema=False)
+def chat_get_info():
+    return JSONResponse({"use":"POST /chat (or /api/chat)", "body":{"message":"Summarize your backend skills"}})
