@@ -2,160 +2,141 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
-  <title>Lokesh Eedara — AI Developer</title>
+  <title>Lokesh Eedara — Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/static/styles.css" />
 </head>
 <body>
+  <!-- NAV -->
   <header class="topbar">
     <div class="topbar__inner">
-      <div class="brand">Lokesh Eedara</div>
+      <a class="brand" href="#home">LElokesh.com</a>
       <nav class="nav">
         <a href="#home">Home</a>
-        <a href="#about">About</a>
+        <a href="#about">About me</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#awards">Awards</a>
       </nav>
-      <button id="themeBtn" class="theme-btn" aria-label="Toggle theme">☀️</button>
+      <button id="themeBtn" class="theme-btn" aria-label="Toggle theme">🌙</button>
     </div>
   </header>
 
-  <main id="home" class="page">
-    <!-- LEFT COLUMN -->
-    <aside class="leftcol">
-      <section class="card hoverable profile-card" id="profile">
-        <img class="profile-pic" src="/static/images/profile.jpg" alt="Profile photo" />
-        <div class="profile-meta">
-          <h1 class="name">Lokesh Eedara</h1>
-          <p class="role">MIS Graduate • AI & Full-Stack Developer</p>
-          <p class="links">
-            <a href="mailto:lokesheedara19@gmail.com" target="_blank" rel="noopener">Email</a> ·
-            <a href="https://www.linkedin.com/in/lokesheedara19/" target="_blank" rel="noopener">LinkedIn</a>
-          </p>
+  <main id="home" class="wrap">
+    <!-- ROW 1: profile + about -->
+    <section class="grid-2">
+      <div class="card hoverable" id="profile">
+        <h2>Profile picture</h2>
+        <img class="profile-pic" src="/static/images/profile.jpg" alt="Profile" />
+        <div class="muted">
+          Lokesh Eedara — MIS Graduate • AI & Full-Stack Developer
         </div>
-      </section>
+      </div>
 
-      <section id="about" class="card hoverable">
-        <h2>About</h2>
+      <div class="card hoverable" id="about">
+        <h2>About me</h2>
         <p>
-          I’m a Master’s student (4.0 GPA) in Computer Science at Eastern Kentucky University (AI & Data Science).
-          I build AI-driven backends, conversational roleplay bots, and scalable cloud apps using FastAPI,
-          Spring Boot, React, Docker, and cloud platforms like AWS, Azure, and Render.
+          I’m a Master’s student (GPA 4.0) in Computer Science at EKU (AI & Data Science). I build
+          AI-driven backends, conversational roleplay bots, and cloud apps using FastAPI, Spring Boot,
+          React, Docker, and AWS/Azure/Render.
         </p>
         <div class="chips">
-          <span>Python</span><span>Java/J2EE</span><span>FastAPI</span><span>Spring Boot</span>
-          <span>React.js</span><span>REST APIs</span><span>LLM APIs</span>
-          <span>MySQL</span><span>PostgreSQL</span><span>MongoDB</span>
-          <span>Docker</span><span>Kubernetes</span><span>AWS</span><span>Azure</span><span>Render</span>
+          <span>Python</span><span>Java/Spring</span><span>FastAPI</span><span>React</span>
+          <span>Docker</span><span>LLM + RAG</span><span>AWS</span><span>Azure</span><span>Render</span>
         </div>
-        <div class="edu">
-          <div class="edu__title">Education</div>
-          <div class="edu__line">
-            <strong>Eastern Kentucky University</strong> — M.S. Computer Science (AI & Data Science),
-            Aug 2024 – Dec 2025, GPA 4.0
-          </div>
-          <div class="edu__tags">
-            <span>AI & ML</span><span>Big Data</span><span>Software Engineering & Agile</span><span>Data Visualization</span>
-          </div>
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="experience" class="card hoverable">
-        <h2>Experience</h2>
-
-        <div class="xp">
-          <div class="xp__top"><div class="xp__role">Research Assistant</div><div class="xp__time">Jan 2025 – Present</div></div>
-          <div class="xp__org">Eastern Kentucky University</div>
-          <ul class="xp__bullets">
-            <li>Built & deployed AI backends (FastAPI + Docker) with Gemini and Ollama.</li>
-            <li>Implemented STT/TTS pipelines for voice roleplay; deployed on Render.</li>
-            <li>Contributed to $5,000 prize at EKU Scholars Tank 2025.</li>
-          </ul>
-          <div class="tags"><span>FastAPI</span><span>Docker</span><span>Gemini</span><span>Ollama</span><span>Render</span></div>
-        </div>
-
-        <div class="xp">
-          <div class="xp__top"><div class="xp__role">Graduate Assistant</div><div class="xp__time">Jan 2025 – Present</div></div>
-          <div class="xp__org">Eastern Kentucky University</div>
-          <ul class="xp__bullets">
-            <li>Assisted iOS teaching; maintained labs across Ubuntu/Linux Mint/Windows/macOS.</li>
-            <li>Configured Cisco switches/routers; automated lab setup scripts.</li>
-            <li>Supported 50+ students’ projects and troubleshooting.</li>
-          </ul>
-          <div class="tags"><span>Automation</span><span>Cisco</span><span>Lab Ops</span></div>
-        </div>
-
-        <div class="xp">
-          <div class="xp__top"><div class="xp__role">Java Backend Intern</div><div class="xp__time">Feb – May 2024</div></div>
-          <div class="xp__org">Slash Mark</div>
-          <ul class="xp__bullets">
-            <li>Spring Boot + MySQL HMS, REST APIs, RBAC security.</li>
-            <li>Automated deploys with Docker, GitHub Actions, AWS EC2.</li>
-          </ul>
-          <div class="tags"><span>Spring Boot</span><span>MySQL</span><span>AWS</span><span>Docker</span></div>
-        </div>
-
-        <div class="xp">
-          <div class="xp__top"><div class="xp__role">Full-Stack Developer Intern</div><div class="xp__time">May – Aug 2024</div></div>
-          <div class="xp__org">BlackBucks</div>
-          <ul class="xp__bullets">
-            <li>React + Spring Boot for course/quiz management with JWT auth.</li>
-            <li>Deployed to AWS EC2 + RDS using Docker.</li>
-          </ul>
-          <div class="tags"><span>React</span><span>Spring Boot</span><span>JWT</span><span>AWS</span><span>Docker</span></div>
-        </div>
-      </section>
-
-      <section id="projects" class="card hoverable">
-        <h2>Projects</h2>
-        <div class="proj">
-          <div class="proj__title">Big E Sales Coach App</div>
-          <p>FastAPI + Gemini for real-time sales roleplay with voice (STT/TTS); Render deploy and CI/CD.</p>
-          <div class="tags"><span>FastAPI</span><span>Gemini</span><span>STT/TTS</span><span>Render</span></div>
-        </div>
-        <div class="proj">
-          <div class="proj__title">AI Student Advising Chatbot</div>
-          <p>Ollama LLM + FastAPI for personalized advising; Dockerized microservice.</p>
-          <div class="tags"><span>Ollama</span><span>FastAPI</span><span>Docker</span></div>
-        </div>
-        <div class="proj">
-          <div class="proj__title">Underwater Image Quality Assessment (UEIQM)</div>
-          <p>No-reference image quality using SVR and engineered features on a 240-image dataset.</p>
-          <div class="tags"><span>Python</span><span>SVR</span><span>ML</span></div>
-        </div>
-      </section>
-
-      <section id="awards" class="card hoverable">
-        <h2>Awards</h2>
-        <div class="award">
-          <div class="award__icon">🏆</div>
-          <div>
-            <div class="award__title">Winner — EKU Scholars Tank 2025</div>
-            <div class="award__meta">$5,000 prize for the Big E Sales Coach App.</div>
-          </div>
-        </div>
-      </section>
-    </aside>
-
-    <!-- RIGHT COLUMN: Chatbot -->
-    <section class="rightcol">
-      <div class="chatpanel hoverable">
+    <!-- ROW 2: sticky chat panel -->
+    <section class="chat-row">
+      <div class="chatpanel hoverable" id="chatbox">
         <div class="chatpanel__head">
-          <div>
-            <div class="chatpanel__title">Chat with Lokesh’s AI</div>
-            <div class="online"><span class="dot"></span> online</div>
+          <div class="title">Chat bot</div>
+          <div class="status"><span class="dot"></span> online</div>
+          <div class="actions">
+            <button id="clearBtn" class="btn ghost sm">Clear</button>
           </div>
-          <button id="clearBtn" class="btn ghost small">Clear</button>
         </div>
-
         <div id="chatLog" class="chatpanel__log">
-          <div class="bubble bot">Hi! I’m your AI assistant. Ask about my skills, projects, or experience.</div>
+          <div class="bubble bot">Hey! I’m Lokesh’s portfolio bot. Ask about my skills, projects, or experience.</div>
         </div>
-
         <div class="chatpanel__input">
-          <input id="chatInput" placeholder="Ask me anything about Lokesh..." />
+          <input id="chatInput" placeholder="Ask me anything…" />
           <button id="chatSend" class="btn">Send</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROW 3: experience -->
+    <section id="experience" class="card hoverable">
+      <h2>Experience</h2>
+
+      <div class="xp">
+        <div class="xp__top"><strong>Research Assistant</strong><span class="muted">Jan 2025 – Present · EKU</span></div>
+        <ul>
+          <li>Built & deployed AI backends (FastAPI + Docker) with Gemini & Ollama; voice STT/TTS pipelines.</li>
+          <li>Render deployments; contributed to $5,000 win at EKU Scholars Tank 2025.</li>
+        </ul>
+        <div class="tags"><span>FastAPI</span><span>Docker</span><span>Gemini</span><span>Ollama</span><span>Render</span></div>
+      </div>
+
+      <div class="xp">
+        <div class="xp__top"><strong>Graduate Assistant</strong><span class="muted">Jan 2025 – Present · EKU</span></div>
+        <ul>
+          <li>Assisted iOS teaching; managed labs across Ubuntu/Linux Mint/Windows/macOS.</li>
+          <li>Configured Cisco switches/routers; automated lab setup; supported 50+ students.</li>
+        </ul>
+        <div class="tags"><span>Automation</span><span>Cisco</span><span>Lab Ops</span></div>
+      </div>
+
+      <div class="xp">
+        <div class="xp__top"><strong>Java Backend Intern</strong><span class="muted">Feb – May 2024 · Slash Mark</span></div>
+        <ul>
+          <li>Spring Boot + MySQL Hospital Management System; RBAC security; REST APIs.</li>
+          <li>Docker + AWS EC2 deployment with CI/CD.</li>
+        </ul>
+        <div class="tags"><span>Spring Boot</span><span>MySQL</span><span>AWS</span><span>Docker</span></div>
+      </div>
+
+      <div class="xp">
+        <div class="xp__top"><strong>Full-Stack Developer Intern</strong><span class="muted">May – Aug 2024 · BlackBucks</span></div>
+        <ul>
+          <li>React frontend + Spring Boot backend for course/quiz with JWT auth.</li>
+          <li>Deployed on AWS EC2 + RDS using Docker.</li>
+        </ul>
+        <div class="tags"><span>React</span><span>Spring Boot</span><span>JWT</span><span>AWS</span><span>Docker</span></div>
+      </div>
+    </section>
+
+    <!-- ROW 4: projects -->
+    <section id="projects" class="card hoverable">
+      <h2>Projects</h2>
+      <div class="proj">
+        <div class="proj__title">Big E Sales Coach App</div>
+        <p>FastAPI + Gemini for real-time sales roleplay with STT/TTS; Render deploy & CI/CD.</p>
+        <div class="tags"><span>FastAPI</span><span>Gemini</span><span>STT/TTS</span><span>Render</span></div>
+      </div>
+      <div class="proj">
+        <div class="proj__title">AI Student Advising Chatbot</div>
+        <p>Ollama LLM + FastAPI for personalized advising; Dockerized microservice.</p>
+        <div class="tags"><span>Ollama</span><span>FastAPI</span><span>Docker</span></div>
+      </div>
+      <div class="proj">
+        <div class="proj__title">Underwater Image Quality Assessment (UEIQM)</div>
+        <p>No-reference image quality prediction with SVR on a 240-image dataset.</p>
+        <div class="tags"><span>Python</span><span>SVR</span><span>ML</span></div>
+      </div>
+    </section>
+
+    <!-- ROW 5: awards -->
+    <section id="awards" class="card hoverable">
+      <h2>Awards</h2>
+      <div class="award">
+        <div class="award__icon">🏆</div>
+        <div>
+          <div class="award__title">Winner — EKU Scholars Tank 2025</div>
+          <div class="muted">$5,000 prize for the Big E Sales Coach App.</div>
         </div>
       </div>
     </section>

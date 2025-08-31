@@ -1,9 +1,9 @@
-// --- Theme toggle ---
+// theme toggle
 const themeBtn = document.getElementById('themeBtn');
 function setTheme(mode){
   document.documentElement.setAttribute('data-theme', mode);
   localStorage.setItem('theme', mode);
-  themeBtn.textContent = mode === 'dark' ? '☀️' : '🌙';
+  themeBtn.textContent = mode === 'dark' ? '🌙' : '☀️';
 }
 setTheme(localStorage.getItem('theme') || 'dark');
 themeBtn.addEventListener('click', ()=>{
@@ -11,84 +11,81 @@ themeBtn.addEventListener('click', ()=>{
   setTheme(cur === 'dark' ? 'light' : 'dark');
 });
 
-// --- Chat helpers ---
-const chatLog = document.getElementById('chatLog');
-const chatInput = document.getElementById('chatInput');
-const chatSend = document.getElementById('chatSend');
-const clearBtn = document.getElementById('clearBtn');
+// smooth scroll on nav
+document.querySelectorAll('.nav a').forEach(a=>{
+  a.addEventListener('click', e=>{
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
+// chat logic with typing effect + fallback to /api/chat
+const log = document.getElementById('chatLog');
+const input = document.getElementById('chatInput');
+const send  = document.getElementById('chatSend');
+const clear = document.getElementById('clearBtn');
 
 function addBubble(role, text){
   const div = document.createElement('div');
-  div.className = 'bubble ' + (role === 'user' ? 'user' : 'bot');
-  chatLog.appendChild(div);
-  if(role === 'bot'){
-    typeWriter(div, text);
-  } else {
-    div.textContent = text;
-  }
-  chatLog.scrollTop = chatLog.scrollHeight;
-  return div;
+  div.className = 'bubble ' + (role==='user' ? 'user' : 'bot');
+  log.appendChild(div);
+  if(role==='bot'){ typeWriter(div, text); } else { div.textContent = text; }
+  log.scrollTop = log.scrollHeight;
 }
-
-// Typing effect for bot responses
 function typeWriter(el, text){
   el.textContent = '';
-  let i = 0;
-  const speed = 12; // chars per tick
-  function tick(){
-    el.textContent += text.slice(i, i + speed);
+  let i = 0, speed = 14;
+  (function step(){
+    el.textContent += text.slice(i, i+speed);
     i += speed;
-    chatLog.scrollTop = chatLog.scrollHeight;
-    if(i < text.length) requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
+    log.scrollTop = log.scrollHeight;
+    if(i < text.length) requestAnimationFrame(step);
+  })();
 }
-
 async function sendMessage(){
-  const msg = chatInput.value.trim();
+  const msg = input.value.trim();
   if(!msg) return;
   addBubble('user', msg);
-  chatInput.value = '';
+  input.value = '';
 
-  const waiting = document.createElement('div');
-  waiting.className = 'bubble bot';
-  waiting.textContent = '…';
-  chatLog.appendChild(waiting);
-  chatLog.scrollTop = chatLog.scrollHeight;
+  const wait = document.createElement('div');
+  wait.className = 'bubble bot';
+  wait.textContent = '…';
+  log.appendChild(wait);
+  log.scrollTop = log.scrollHeight;
 
   const body = { message: msg };
   const headers = { 'Content-Type': 'application/json' };
-
-  async function call(endpoint){
-    const res = await fetch(endpoint, { method: 'POST', headers, body: JSON.stringify(body) });
-    if(!res.ok) throw new Error(await res.text());
-    const data = await res.json();
+  async function call(ep){
+    const r = await fetch(ep, { method:'POST', headers, body: JSON.stringify(body) });
+    if(!r.ok) throw new Error(await r.text());
+    const data = await r.json();
     return data.reply || 'Sorry, I could not generate a response.';
   }
 
   try{
     let reply;
-    try { reply = await call('/chat'); }
+    try { reply = await call('/chat'); }  // works with your current mounting
     catch { reply = await call('/api/chat'); }
-    waiting.remove();
+    wait.remove();
     addBubble('bot', reply);
   }catch(err){
-    waiting.remove();
+    wait.remove();
     addBubble('bot', 'Sorry, I hit an error. Please try again.');
     console.error(err);
   }
 }
+send.addEventListener('click', sendMessage);
+input.addEventListener('keydown', e=>{ if(e.key==='Enter') sendMessage(); });
+clear.addEventListener('click', ()=>{ log.innerHTML=''; addBubble('bot','Hey! I’m Lokesh’s portfolio bot. Ask about my skills, projects, or experience.'); });
 
-chatSend.addEventListener('click', sendMessage);
-chatInput.addEventListener('keydown', (e)=>{ if(e.key==='Enter') sendMessage(); });
-clearBtn.addEventListener('click', ()=>{ chatLog.innerHTML=''; addBubble('bot','Hi! I’m your AI assistant. Ask about my skills, projects, or experience.'); });
-
-// Keyboard hover feedback
+// subtle keyboard hover effect for accessibility
 document.querySelectorAll('.hoverable').forEach(el=>{
+  el.tabIndex = 0;
   el.addEventListener('keydown', e=>{
     if(e.key === 'Enter' || e.key === ' '){
-      e.currentTarget.classList.add('hover');
-      setTimeout(()=>e.currentTarget.classList.remove('hover'), 250);
+      el.classList.add('hover');
+      setTimeout(()=>el.classList.remove('hover'), 220);
     }
   });
 });
