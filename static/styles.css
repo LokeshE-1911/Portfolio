@@ -1,8 +1,8 @@
 /* THEME */
 :root{
-  --bg:#0b1020; --text:#e6e9ee; --muted:#a7b0c8;
-  --card:#0f1530; --line:#1f2548; --accent:#7c82ff; --accent2:#22d3ee;
-  --chip:#0a1026; --elev:0 20px 55px rgba(124,130,255,.18);
+  --bg:#99aef0; --text:#070808; --muted:#93d3d8;
+  --card:#e1edf1; --line:#74b9d9; --accent:#7477ac; --accent2:#22d3ee;
+  --chip:#38c0d2; --elev:0 20px 55px rgba(124,130,255,.18);
 }
 :root[data-theme="light"]{
   --bg:#f7f8fb; --text:#0b1020; --muted:#475569;
