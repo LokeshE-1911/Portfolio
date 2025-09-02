@@ -1,10 +1,14 @@
-# app/models.py  (optional helper)
-from starlette.requests import Request
+from pydantic import BaseModel
+from typing import List, Optional
 
-def get_llm(req: Request):
-    from .main import get_llm as _get_llm
-    return _get_llm(req)
+class ChatMessage(BaseModel):
+    role: str
+    content: str
 
-def get_rag(req: Request):
-    from .main import get_rag as _get_rag
-    return _get_rag(req)
+class ChatRequest(BaseModel):
+    message: str
+    history: Optional[List[ChatMessage]] = []
+    top_k: int = 5
+
+class ChatResponse(BaseModel):
+    reply: str
