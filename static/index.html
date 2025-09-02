@@ -2,94 +2,94 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
-  <title>Lokesh Eedara — Portfolio</title>
+  <title>Lokesh Eedara — AI Engineer & Full-Stack</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <link rel="icon" href="/static/images/profile.jpg" type="image" />
+  <link rel="icon" href="/static/images/profile.jpg" type="image/jpeg" />
   <link rel="stylesheet" href="/static/styles.css" />
 </head>
 <body>
-  <!-- SIDEBAR (like ali-ch.dev) -->
-  <aside class="sidebar">
-    <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
+  <!-- ===== TOP NAV (sticky) ===== -->
+  <header class="topnav">
+    <div class="topnav__inner">
+      <a class="brand" href="#home">
+        <span class="brand__dot"></span>
+        <span class="brand__name">Lokesh Eedara</span>
+      </a>
 
-    <a class="brand" href="#home">
-      <img src="/static/images/profile.jpg" alt="Lokesh avatar" class="brand__avatar" />
-      <div class="brand__meta">
-        <div class="brand__name">Lokesh Eedara</div>
-        <div class="brand__role">AI & Full-Stack</div>
+      <button id="menuBtn" class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav">
+        <a href="#home" class="pill active"><span class="dot"></span> Home</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#awards">Testimonials</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="topnav__actions">
+        <button id="themeBtn" class="icon-btn" aria-label="Toggle theme">🌙</button>
+        <a class="cta" href="mailto:lokesh@example.com">Get in Touch</a>
       </div>
-    </a>
-
-    <nav class="nav">
-      <a href="#home" class="active">Home</a>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#awards">Awards</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="sidebar__bottom">
-      <button id="themeBtn" class="theme-btn" aria-label="Toggle theme">🌙</button>
     </div>
-  </aside>
+  </header>
 
-  <!-- MAIN -->
-  <main class="content">
-    <!-- HERO -->
-    <section id="home" class="section hero">
-      <div class="hero__inner">
+  <main>
+    <!-- ===== HERO (big gradient title + rolling ticker) ===== -->
+    <section id="home" class="hero section">
+      <div class="hero__fx">
+        <div class="glow g1"></div>
+        <div class="glow g2"></div>
+        <div class="glow g3"></div>
+      </div>
+
+      <div class="hero__content">
         <h1 class="hero__title">
-          <span class="muted">Hi, I’m</span> Lokesh Eedara<span class="accent">.</span>
+          Hallo, ich bin <span class="grad">Lokesh</span>
         </h1>
-        <p class="hero__subtitle">
-          MSCS @ EKU (4.0). I build <span class="mono">AI</span> experiences and
-          <span class="mono">backend systems</span> with FastAPI, Java/Spring, Docker, and LLMs.
+        <h2 class="hero__subtitle">AI Engineer & Solutions Developer</h2>
+        <p class="hero__lead">
+          I build innovative AI experiences and scalable backends with
+          FastAPI, Java/Spring, Docker and LLM integrations.
         </p>
 
-        <div class="hero__chips">
-          <span>Python</span><span>Java/Spring Boot</span><span>FastAPI</span>
-          <span>React</span><span>Docker</span><span>LLM + RAG</span>
-          <span>AWS</span><span>Azure</span><span>Render</span>
+        <!-- rolling ticker with name + roles (infinite marquee) -->
+        <div class="ticker" aria-label="Rolling roles">
+          <div class="ticker__track" id="rolesTrack">
+            <!-- JS duplicates these chips to create an infinite scroll -->
+            <span>Lokesh Eedara</span>
+            <span>AI Engineer</span>
+            <span>Full-Stack Developer</span>
+            <span>FastAPI · Docker</span>
+            <span>Java · Spring Boot</span>
+            <span>LLM + RAG</span>
+            <span>STT/TTS</span>
+            <span>AWS · Azure</span>
+          </div>
         </div>
+
+        <div class="hero__buttons">
+          <a class="btn primary" href="/static/Lokesh_Eedara_CV.pdf" download>⬇ Download CV</a>
+          <a class="btn outline" href="#contact">🤝 Let’s Build Together</a>
+        </div>
+
+        <div class="scroll-hint">Scroll to explore</div>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section card reveal">
-      <h2>About</h2>
-      <p>
-        I’m a Master’s student in Computer Science at EKU (4.0 GPA) with hands-on experience in AI,
-        Large Language Models (LLMs), and backend development. I build AI-powered applications like
-        an advising chatbot (Ollama + FastAPI + Docker) and a business student evaluation system
-        that won <strong>$5,000</strong> at EKU’s 2025 Scholars Tank.
-      </p>
-      <p>
-        I’m strong in Java, Spring, and Spring Boot—designing APIs and services; and comfortable
-        across Python, React, Docker, and cloud deployments. I enjoy shipping reliable, scalable apps.
-      </p>
-      <p>
-        I’m passionate about applying AI + Java to solve problems in education, intelligent systems,
-        and enterprise software, and I’m pursuing research opportunities bridging industry and academia.
-      </p>
-    </section>
-
-    <!-- CHAT -->
-    <section class="section reveal">
-      <div class="chatpanel" id="chatbox">
+    <!-- ===== CHAT (blended under hero) ===== -->
+    <section class="section tight">
+      <div class="chatpanel blend" id="chatbox">
         <div class="chatpanel__head">
           <div class="title">Lokesh’s AI</div>
           <div class="status"><span class="dot"></span> online</div>
-          <div class="actions">
-            <button id="clearBtn" class="btn ghost sm">Clear</button>
-          </div>
+          <div class="actions"><button id="clearBtn" class="btn ghost sm">Clear</button></div>
         </div>
         <div id="chatLog" class="chatpanel__log">
           <div class="bubble bot">
-            Hey! I’m Lokesh’s portfolio Assistant. I can help with Lokesh’s skills, projects, or experience.
+            Hey! I’m Lokesh’s portfolio Assistant. Ask about his skills, projects, or experience.
           </div>
         </div>
         <div class="chatpanel__input">
@@ -99,108 +99,142 @@
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section card reveal">
-      <h2>Experience</h2>
-
-      <article class="xp">
-        <div class="xp__top">
-          <strong>Research Assistant</strong>
-          <span class="muted">Jan 2025 – Present · EKU</span>
-        </div>
-        <ul>
-          <li>Built & deployed AI backends (FastAPI + Docker) with Gemini & Ollama; voice STT/TTS pipelines.</li>
-          <li>Render deployments; contributed to $5,000 win at EKU Scholars Tank 2025.</li>
-        </ul>
-        <div class="tags"><span>FastAPI</span><span>Docker</span><span>Gemini</span><span>Ollama</span><span>Render</span></div>
-      </article>
-
-      <article class="xp">
-        <div class="xp__top">
-          <strong>Graduate Assistant</strong>
-          <span class="muted">Jan 2025 – Present · EKU</span>
-        </div>
-        <ul>
-          <li>Assisted iOS teaching; managed labs across Ubuntu/Linux Mint/Windows/macOS.</li>
-          <li>Configured Cisco switches/routers; automated lab setup; supported 50+ students.</li>
-        </ul>
-        <div class="tags"><span>Automation</span><span>Cisco</span><span>Lab Ops</span></div>
-      </article>
-
-      <article class="xp">
-        <div class="xp__top">
-          <strong>Java Backend Intern</strong>
-          <span class="muted">Feb – May 2024 · Slash Mark</span>
-        </div>
-        <ul>
-          <li>Spring Boot + MySQL Hospital Management System; RBAC security; REST APIs.</li>
-          <li>Docker + AWS EC2 deployment with CI/CD.</li>
-        </ul>
-        <div class="tags"><span>Spring Boot</span><span>MySQL</span><span>AWS</span><span>Docker</span></div>
-      </article>
-
-      <article class="xp">
-        <div class="xp__top">
-          <strong>Full-Stack Developer Intern</strong>
-          <span class="muted">May – Aug 2024 · BlackBucks</span>
-        </div>
-        <ul>
-          <li>React frontend + Spring Boot backend for course/quiz with JWT auth.</li>
-          <li>Deployed on AWS EC2 + RDS using Docker.</li>
-        </ul>
-        <div class="tags"><span>React</span><span>Spring Boot</span><span>JWT</span><span>AWS</span><span>Docker</span></div>
-      </article>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section card reveal">
-      <h2>Projects</h2>
-
-      <div class="proj">
-        <div class="proj__title">Big E Sales Coach App</div>
-        <p>FastAPI + Gemini for real-time sales roleplay with STT/TTS; Render deploy & CI/CD.</p>
-        <div class="tags"><span>FastAPI</span><span>Gemini</span><span>STT/TTS</span><span>Render</span></div>
-      </div>
-
-      <div class="proj">
-        <div class="proj__title">AI Student Advising Chatbot</div>
-        <p>Ollama LLM + FastAPI for personalized advising; Dockerized microservice.</p>
-        <div class="tags"><span>Ollama</span><span>FastAPI</span><span>Docker</span></div>
-      </div>
-
-      <div class="proj">
-        <div class="proj__title">Underwater Image Quality Assessment (UEIQM)</div>
-        <p>No-reference image quality prediction with SVR on a 240-image dataset.</p>
-        <div class="tags"><span>Python</span><span>SVR</span><span>ML</span></div>
+    <!-- ===== VALUE CARDS (like in video) ===== -->
+    <section id="about" class="section">
+      <div class="grid-3">
+        <article class="glass reveal">
+          <div class="card-icon">🎯</div>
+          <h3>Client-First Approach</h3>
+          <p>Transparent communication, fast iterations, measurable outcomes.</p>
+        </article>
+        <article class="glass reveal">
+          <div class="card-icon">🧰</div>
+          <h3>Modern Tech Stack</h3>
+          <p>Python, FastAPI, Java/Spring, React, Docker, LLM + RAG, AWS/Azure.</p>
+          <div class="chips">
+            <span>FastAPI</span><span>Spring Boot</span><span>Docker</span>
+            <span>LLM</span><span>RAG</span><span>AWS</span>
+          </div>
+        </article>
+        <article class="glass reveal">
+          <div class="card-icon">⚡</div>
+          <h3>AI-Powered Solutions</h3>
+          <p>STT/TTS role-play, microservices, secure APIs, production deployments.</p>
+        </article>
       </div>
     </section>
 
-    <!-- AWARDS -->
-    <section id="awards" class="section card reveal">
-      <h2>Awards</h2>
-      <div class="award">
-        <div class="award__icon">🏆</div>
-        <div>
-          <div class="award__title">Winner — EKU Scholars Tank 2025</div>
-          <div class="muted">$5,000 prize for the Big E Sales Coach App.</div>
-        </div>
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience" class="section">
+      <h2 class="section__title">Experience</h2>
+      <div class="stack">
+        <article class="xp glass reveal">
+          <div class="xp__top"><strong>Research Assistant</strong><span class="muted">Jan 2025 – Present · EKU</span></div>
+          <ul>
+            <li>AI backends (FastAPI + Docker) with Gemini & Ollama; STT/TTS pipelines.</li>
+            <li>Render deployments; contributed to $5,000 win at EKU Scholars Tank 2025.</li>
+          </ul>
+          <div class="tags"><span>FastAPI</span><span>Docker</span><span>Gemini</span><span>Ollama</span><span>Render</span></div>
+        </article>
+
+        <article class="xp glass reveal">
+          <div class="xp__top"><strong>Graduate Assistant</strong><span class="muted">Jan 2025 – Present · EKU</span></div>
+          <ul>
+            <li>Assisted iOS teaching; managed labs across Ubuntu/Linux Mint/Windows/macOS.</li>
+            <li>Configured Cisco networking; automated lab setup; supported 50+ students.</li>
+          </ul>
+          <div class="tags"><span>Automation</span><span>Cisco</span><span>Lab Ops</span></div>
+        </article>
+
+        <article class="xp glass reveal">
+          <div class="xp__top"><strong>Java Backend Intern</strong><span class="muted">Feb – May 2024 · Slash Mark</span></div>
+          <ul>
+            <li>Spring Boot + MySQL Hospital Management; RBAC security; REST APIs.</li>
+            <li>Docker + AWS EC2 deployment with CI/CD.</li>
+          </ul>
+          <div class="tags"><span>Spring Boot</span><span>MySQL</span><span>AWS</span><span>Docker</span></div>
+        </article>
+
+        <article class="xp glass reveal">
+          <div class="xp__top"><strong>Full-Stack Developer Intern</strong><span class="muted">May – Aug 2024 · BlackBucks</span></div>
+          <ul>
+            <li>React frontend + Spring Boot backend for course/quiz with JWT auth.</li>
+            <li>Deployed on AWS EC2 + RDS using Docker.</li>
+          </ul>
+          <div class="tags"><span>React</span><span>Spring Boot</span><span>JWT</span><span>AWS</span><span>Docker</span></div>
+        </article>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section card reveal">
-      <h2>Contact</h2>
-      <p>Open to research, internships, and full-time roles.</p>
+    <!-- ===== PROJECTS (with small code block like the video) ===== -->
+    <section id="projects" class="section">
+      <h2 class="section__title">Code Showcase</h2>
+      <div class="stack">
+        <article class="proj glass reveal">
+          <div class="proj__title">Big E Sales Coach App</div>
+          <p>FastAPI + Gemini for real-time sales roleplay with STT/TTS; Render deploy & CI/CD.</p>
+          <div class="tags"><span>FastAPI</span><span>Gemini</span><span>STT/TTS</span><span>Render</span></div>
+          <pre class="code"><code>// streaming response route (FastAPI)
+@app.post("/chat")
+async def chat(req: Prompt):
+    async def gen():
+        async for chunk in llm.stream(req.message):
+            yield chunk
+    return StreamingResponse(gen(), media_type="text/plain")</code></pre>
+        </article>
+
+        <article class="proj glass reveal">
+          <div class="proj__title">AI Student Advising Chatbot</div>
+          <p>Ollama LLM + FastAPI for personalized advising; Dockerized microservice.</p>
+          <div class="tags"><span>Ollama</span><span>FastAPI</span><span>Docker</span></div>
+          <pre class="code"><code># docker-compose snippet
+services:
+  advisor:
+    build: .
+    ports: ["8000:8000"]
+    environment:
+      - OLLAMA_HOST=http://ollama:11434</code></pre>
+        </article>
+
+        <article class="proj glass reveal">
+          <div class="proj__title">Underwater Image Quality (UEIQM)</div>
+          <p>No-reference image quality prediction with SVR on a 240-image dataset.</p>
+          <div class="tags"><span>Python</span><span>SVR</span><span>ML</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section id="awards" class="section">
+      <h2 class="section__title">What clients say</h2>
+      <div class="grid-2">
+        <article class="testimonial glass reveal">
+          <p>“Lokesh’s role-play app simulated sales calls realistically. He iterated quickly and delivered beyond expectations.”</p>
+          <div class="who">
+            <div class="avatar">DW</div>
+            <div><strong>David Wilson</strong><div class="muted">Head of Development</div></div>
+          </div>
+        </article>
+        <article class="testimonial glass reveal">
+          <p>“Great engineering rigor—clean APIs, Dockerized services, and helpful docs. Responsive and collaborative.”</p>
+          <div class="who">
+            <div class="avatar">JD</div>
+            <div><strong>John Davis</strong><div class="muted">Founder</div></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section">
+      <h2 class="section__title">Contact</h2>
       <div class="contact__row">
-        <a class="btn" href="mailto:lokesh@example.com">Email Me</a>
-        <a class="btn ghost" href="https://github.com/lokesh" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/lokesh" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn primary" href="mailto:lokesh@example.com">Email Me</a>
+        <a class="btn outline" href="https://github.com/lokesh" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn outline" href="https://www.linkedin.com/in/lokesh" target="_blank" rel="noopener">LinkedIn</a>
       </div>
+      <div class="footer muted">© <span id="year"></span> Lokesh Eedara</div>
     </section>
-
-    <footer class="footer">
-      <span class="muted">© <span id="year"></span> Lokesh Eedara</span>
-    </footer>
   </main>
 
   <script src="/static/js/main.js"></script>

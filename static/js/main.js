@@ -1,4 +1,4 @@
-// ========= Theme toggle =========
+// ===== Theme toggle =====
 const themeBtn = document.getElementById('themeBtn');
 function setTheme(mode){
   document.documentElement.setAttribute('data-theme', mode);
@@ -6,35 +6,25 @@ function setTheme(mode){
   if(themeBtn) themeBtn.textContent = mode === 'dark' ? '🌙' : '☀️';
 }
 setTheme(localStorage.getItem('theme') || 'dark');
-if (themeBtn) {
-  themeBtn.addEventListener('click', ()=>{
-    const cur = document.documentElement.getAttribute('data-theme');
-    setTheme(cur === 'dark' ? 'light' : 'dark');
-  });
-}
-
-// ========= Mobile sidebar toggle =========
-const sidebar = document.querySelector('.sidebar');
-const menuToggle = document.getElementById('menuToggle');
-if (menuToggle) {
-  menuToggle.addEventListener('click', () => {
-    sidebar.classList.toggle('open');
-  });
-}
-
-// ========= Smooth scroll + scrollspy =========
-const navLinks = document.querySelectorAll('.nav a');
-navLinks.forEach(a=>{
-  a.addEventListener('click', e=>{
-    e.preventDefault();
-    const id = a.getAttribute('href');
-    document.querySelector(id)?.scrollIntoView({behavior:'smooth', block:'start'});
-    // Close mobile sidebar after click
-    if (sidebar.classList.contains('open')) sidebar.classList.remove('open');
-  });
+themeBtn?.addEventListener('click', ()=>{
+  const cur = document.documentElement.getAttribute('data-theme');
+  setTheme(cur === 'dark' ? 'light' : 'dark');
 });
 
-// Scrollspy intersection observer
+// ===== Mobile nav =====
+const menuBtn = document.getElementById('menuBtn');
+const nav = document.querySelector('.nav');
+menuBtn?.addEventListener('click', ()=> nav.classList.toggle('open'));
+
+// ===== Scrollspy + smooth scroll =====
+const links = document.querySelectorAll('.nav a');
+links.forEach(a=>{
+  a.addEventListener('click', e=>{
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth', block:'start'});
+    nav.classList.remove('open');
+  });
+});
 const sections = [...document.querySelectorAll('section[id]')];
 const spy = new IntersectionObserver((entries)=>{
   entries.forEach(entry=>{
@@ -42,31 +32,33 @@ const spy = new IntersectionObserver((entries)=>{
     const link = document.querySelector(`.nav a[href="#${id}"]`);
     if (!link) return;
     if (entry.isIntersecting) {
-      navLinks.forEach(l=>l.classList.remove('active'));
+      links.forEach(l=>l.classList.remove('active'));
       link.classList.add('active');
     }
   });
 }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
-
 sections.forEach(s=>spy.observe(s));
 
-// ========= Section reveal on scroll =========
+// ===== Reveal on scroll =====
 const revealEls = document.querySelectorAll('.reveal');
 const obs = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('in');
-      obs.unobserve(e.target);
-    }
+    if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
   });
-}, { threshold: 0.18 });
+}, { threshold: 0.15 });
 revealEls.forEach(el=>obs.observe(el));
 
-// ========= Year in footer =========
-const y = document.getElementById('year');
-if (y) y.textContent = new Date().getFullYear();
+// ===== Year in footer =====
+document.getElementById('year')?.append(new Date().getFullYear());
 
-// ========= Chat logic (kept from your version, tightened) =========
+// ===== Rolling ticker duplication (infinite) =====
+const track = document.getElementById('rolesTrack');
+if (track) {
+  // Duplicate contents to achieve seamless 50% -> 0% loop
+  track.innerHTML = track.innerHTML + track.innerHTML;
+}
+
+// ===== Chat logic =====
 const log = document.getElementById('chatLog');
 const input = document.getElementById('chatInput');
 const send  = document.getElementById('chatSend');
@@ -124,6 +116,6 @@ async function sendMessage(){
     console.error(err);
   }
 }
-if (send) send.addEventListener('click', sendMessage);
-if (input) input.addEventListener('keydown', e=>{ if(e.key==='Enter') sendMessage(); });
-if (clear) clear.addEventListener('click', ()=>{ log.innerHTML=''; addBubble('bot','Hey! I’m Lokesh’s portfolio Assistant. Ask about my skills, projects, or experience.'); });
+send?.addEventListener('click', sendMessage);
+input?.addEventListener('keydown', e=>{ if(e.key==='Enter') sendMessage(); });
+clear?.addEventListener('click', ()=>{ log.innerHTML=''; addBubble('bot','Hey! I’m Lokesh’s portfolio Assistant. Ask about my skills, projects, or experience.'); });
