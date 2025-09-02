@@ -1,6 +1,6 @@
 /* ========= THEME ========= */
 :root{
-  --bg:#c168ea; --bg2:#8473f3; --card:#91f3e8; --line:#cad7f6;
+  --bg:#251c49; --bg2:#342a73; --card:#171754; --line:#183373;
   --text:#e8ecf7; --muted:#9fb0c9; --chip:rgba(255,255,255,.06);
   --accent:#9b8aff; --accent2:#5aa8ff; --cta:#a78bfa;
   --shadow:0 24px 70px rgba(0,0,0,.45);
