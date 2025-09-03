@@ -3,12 +3,12 @@ const themeBtn = document.getElementById('themeBtn');
 function setTheme(mode){
   document.documentElement.setAttribute('data-theme', mode);
   localStorage.setItem('theme', mode);
-  if(themeBtn) themeBtn.textContent = mode === 'dark' ? '🌙' : '☀️';
+  if(themeBtn) themeBtn.textContent = mode === 'light' ? '☀️' : '🌙';
 }
-setTheme(localStorage.getItem('theme') || 'dark');
+setTheme(localStorage.getItem('theme') || 'light');
 themeBtn?.addEventListener('click', ()=>{
   const cur = document.documentElement.getAttribute('data-theme');
-  setTheme(cur === 'dark' ? 'light' : 'dark');
+  setTheme(cur === 'light' ? 'dark' : 'light');
 });
 
 // ===== Mobile nav =====
