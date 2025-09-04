@@ -1,56 +1,92 @@
 {
   "basics": {
     "name": "Lokesh Eedara",
-    "summary": "MIS Graduate (4.0 GPA) at Eastern Kentucky University. AI & Full-Stack developer focusing on FastAPI, Java/Spring, React, Docker, cloud (AWS/Azure/Render) and LLM + RAG with voice."
+    "email": "Lokesh.Eedara@eku.edu",
+    "phone": "+1 469-714-9304",
+    "profiles": [
+      { "network": "LinkedIn", "username": "lokesheedara19", "url": "https://linkedin.com/in/lokesheedara19" }
+    ],
+    "summary": "MS in CS @ EKU (GPA 4.0). AI/LLM + Full-Stack dev: FastAPI, Spring Boot, React, Docker/K8s, AWS/Azure/Render. Built award-winning AI Sales Coach; voice (STT/TTS), RAG, and cloud-native deployments."
   },
+  "research_interests": [
+    "LLMs for education/healthcare/human-AI collaboration",
+    "Retrieval-Augmented Generation (RAG)",
+    "Applied ML/DL for decision making",
+    "AI/ML acceleration & scalable systems (GPU/FPGA, HPC)",
+    "Multimodal AI (speech/text/image)",
+    "AI evaluation: quality, robustness, trust",
+    "Cloud-native, distributed AI architectures"
+  ],
   "skills": [
-    { "name": "Languages", "keywords": ["Python", "Java/J2EE", "JavaScript"] },
-    { "name": "Frameworks", "keywords": ["FastAPI", "Spring Boot", "React.js"] },
-    { "name": "Databases", "keywords": ["MySQL", "PostgreSQL", "MongoDB"] },
-    { "name": "Cloud/Tools", "keywords": ["Docker", "Kubernetes", "AWS", "Azure", "Render", "GitHub"] },
-    { "name": "AI/ML", "keywords": ["LLM APIs", "RAG", "STT/TTS"] }
+    { "name": "Languages", "keywords": ["Python", "Java/J2EE", "C", "R", "JavaScript", "HTML", "CSS", "SQL"] },
+    { "name": "Frameworks", "keywords": ["FastAPI", "Spring Boot", "Hibernate/JPA", "React.js"] },
+    { "name": "Databases/APIs", "keywords": ["MySQL", "PostgreSQL", "MongoDB", "REST APIs", "LLM APIs"] },
+    { "name": "Cloud/DevOps", "keywords": ["Docker", "Kubernetes", "AWS", "Azure", "Render", "GitHub Actions", "GCP"] },
+    { "name": "HPC/Systems", "keywords": ["Parallel Computing", "CUDA (basics)", "Performance Benchmarking", "Cluster Scalability"] },
+    { "name": "Methods", "keywords": ["Agile", "Data Structures & Algorithms", "Experiment Design"] }
   ],
   "projects": [
     {
       "name": "Big E Sales Coach App",
-      "description": "Real-time AI sales roleplay with voice.",
-      "highlights": ["FastAPI + Gemini", "STT/TTS", "Render deploy", "CI/CD"]
+      "description": "Real-time, voice-enabled AI sales role-play platform (Gemini + FastAPI).",
+      "highlights": [
+        "Multimodal STT/TTS pipeline; ~25% latency reduction",
+        "Render deploy + CI/CD; scaled to 60+ users",
+        "Won $5,000 at EKU Scholars Tank 2025"
+      ],
+      "tech": ["FastAPI", "Gemini API", "Docker", "Render", "GitHub Actions"]
     },
     {
       "name": "AI Student Advising Chatbot",
-      "description": "Personalized advising chatbot using Ollama LLM + FastAPI.",
-      "highlights": ["Dockerized microservice", "Lightweight, scalable"]
+      "description": "Personalized advising using local LLMs via Ollama + FastAPI.",
+      "highlights": [
+        "Dockerized microservice; 40% reduction in deploy effort",
+        "Supported 100+ advising sessions with improved throughput"
+      ],
+      "tech": ["Ollama", "FastAPI", "Docker"]
     },
     {
       "name": "Underwater Image Quality Assessment (UEIQM)",
-      "description": "No-reference underwater image quality using SVR and engineered features.",
-      "highlights": ["240-image dataset", "Metric outperforms baselines"]
+      "description": "No-reference underwater image quality metric using engineered features + SVR.",
+      "highlights": [
+        "240-image dataset; automated feature extraction (sharpness/color/contrast)",
+        "≈20% better correlation vs. baselines"
+      ],
+      "tech": ["Python", "SVR", "NumPy/Pandas"]
     }
   ],
   "work": [
     {
       "name": "Eastern Kentucky University",
       "position": "Research Assistant",
-      "summary": "Built AI backends (FastAPI + Docker) with Gemini & Ollama; voice pipelines; Render deploys; contributed to $5,000 EKU Scholars Tank win.",
-      "highlights": ["FastAPI", "Docker", "Gemini", "Ollama", "Render"]
+      "startDate": "2025-01",
+      "endDate": "Present",
+      "summary": "Built LLM apps (Gemini, Ollama), voice pipelines, and cloud prototypes with ~99% uptime; contributed to $5K win.",
+      "highlights": ["FastAPI services", "Docker on Render", "Realtime eval/benchmarks"]
     },
     {
       "name": "Eastern Kentucky University",
       "position": "Graduate Assistant",
-      "summary": "Assisted iOS teaching; maintained labs (Ubuntu/Linux Mint/Windows/macOS); configured Cisco switches/routers; automated lab setup; supported 50+ students.",
-      "highlights": ["Automation", "Cisco", "Lab Ops"]
+      "startDate": "2025-01",
+      "endDate": "Present",
+      "summary": "Supported iOS course/labs; automated multi-OS lab setup; configured Cisco gear; mentored 50+ students.",
+      "highlights": ["Lab automation (−40% setup time)", "Cisco switches/routers", "Student mentoring"]
     },
     {
       "name": "Slash Mark",
       "position": "Java Backend Intern",
-      "summary": "Spring Boot + MySQL HMS with RBAC; Docker/AWS deploy.",
-      "highlights": ["Spring Boot", "MySQL", "AWS", "Docker"]
+      "startDate": "2024-02",
+      "endDate": "2024-05",
+      "summary": "Spring Boot microservices for HMS; RBAC + HIPAA-minded security; AWS EC2 deploy with Docker.",
+      "highlights": ["Normalized MySQL schema", "~30% query perf gain", "CI/CD with GitHub Actions"]
     },
     {
       "name": "BlackBucks",
       "position": "Full-Stack Developer Intern",
-      "summary": "React + Spring Boot for course/quiz management with JWT; AWS EC2 + RDS deploy using Docker.",
-      "highlights": ["React", "Spring Boot", "JWT", "AWS", "Docker"]
+      "startDate": "2024-05",
+      "endDate": "2024-08",
+      "summary": "React + Spring Boot platform for courses/quizzes; JWT auth; Dockerized on AWS (EC2 + RDS).",
+      "highlights": ["<200ms API latency", "500+ concurrent users"]
     }
   ],
   "education": [
@@ -67,7 +103,18 @@
   "awards": [
     {
       "title": "Winner — EKU Scholars Tank 2025",
-      "summary": "$5,000 prize for the Big E Sales Coach App (AI-driven sales roleplay platform)."
+      "date": "2025-03",
+      "summary": "$5,000 prize for the Big E Sales Coach (AI sales role-play)."
+    },
+    {
+      "title": "Graduate Assistantship — EKU",
+      "date": "2025-01",
+      "summary": "Full-time GA for outstanding academic performance and teaching support."
+    },
+    {
+      "title": "Research Assistantship — EKU",
+      "date": "2025-01",
+      "summary": "Selected for AI/LLM research in education and sales domains."
     }
   ]
 }
